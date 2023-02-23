@@ -2,3 +2,4 @@
 .idea
 .vscode
 *.vcd
+src/sim_build
