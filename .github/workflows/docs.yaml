@@ -32,15 +32,19 @@ jobs:
         python-version: '3.10'
     - run: pip install -r tt/requirements.txt
 
+    # check docs
+    - name: build pdf
+      run: ./tt/tt_tool.py --check-docs
+
     # pandoc deps
     - name: Pandoc deps
       run: | 
         sudo apt-get update -y
         sudo apt-get install -y pandoc texlive-xetex
 
-    # fetch the Verilog from Wokwi API
-    - name: build pdf
-      run: ./tt/tt_tool.py --check-docs --create-pdf
+    # create the pdf
+    - name: create pdf
+      run: ./tt/tt_tool.py --create-pdf
 
     # archive the PDF
     - name: Archive PDF
