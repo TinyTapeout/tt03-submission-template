@@ -20,7 +20,7 @@ yaml_version: 3.0
 documentation: 
   author:       ""      # Your name
   title:        ""      # Project title
-  language:     ""      # other examples include Verilog, Amaranth, VHDL, etc
+  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
   description:  ""      # Short description of what your project does
 
 # Longer description of how the project works. You can use standard markdown format.
