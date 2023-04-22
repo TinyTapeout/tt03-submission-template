@@ -1,7 +1,7 @@
 --- 
 # TinyTapeout project information
 project:
-  wokwi_id:    0        # If using wokwi, set this to your project's ID
+  wokwi_id:    362249236392794113        # If using wokwi, set this to your project's ID
 
 # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
 # Source files must be in ./src and you must list each source file separately
@@ -18,44 +18,56 @@ yaml_version: 3.0
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       ""      # Your name
-  title:        ""      # Project title
+  author:       "Anish Paul,Pancham Mittal,Ramandeep"      # Your name
+  title:        "3-Bit parallel Adder"      # Project title
   language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  description:  ""      # Short description of what your project does
+  description:  "This project is used to Add and Subtract 3-bit binary inputs"      # Short description of what your project does
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      Explain how your project works
+       A 3-bit binary parallel adder-subtractor is a digital circuit that can perform both addition and subtraction of two 3-bit binary numbers in parallel.
+   The circuit has two main inputs, which are the two 3-bit binary numbers to be added or subtracted. These inputs are represented by A2, A1, A0, and B2, B1, B0.
+   The circuit also has a carry-in (Cin) input, which is used during addition.
+   To understand how the 3-bit binary parallel adder-subtractor works, let's first look at how addition works in binary. In binary addition, each bit in the two 
+   binary numbers is added along with the carry from the previous addition. The carry from the current addition is then passed to the next bit addition.
+   In our circuit the inputs IN1,IN2 and IN3 is represented as the inputs A0(Least significant bit),A1 and A2(Most significant bit).
+   IN4,IN5,IN6 are represented as inputs B0(Least significant bit),B1 and B2(Most significant bit).
+   IN7 is given as Cin.To make the circuit works as and adder the Carry in(Cin) is given logic 0.
+   Similarly ,the circuit can works as a 2's complement subtractor,to implement this we .have connected the Cin to inputs B2,B1 B0 with an XOR gate.When the Carry in 
+   input (Cin) is given Logic 1 the XOR gate will give the 2's Complement of B.Then the result of addition between A and B will be the difference between them.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Explain how to test your project
+      For testing the project , we have connected the output pins of the circuit to a seven segment display.For this we have connected the S0 (least significant bit)
+      pin(OUT0) to the seven segment pin A,S1 pin(OUT1) to seven segment pin B,S3(Most significant bit) pin (OUT2) to seven segment pin C and the Carry Out pin(OUT3)
+      to seven segment pin D . The Seven Segment Display will glow in accordance to the Output on the respective pins.
 
 # A description of what the inputs do
   inputs:               
     - clock
     - reset
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - IN1 - A0
+    - IN2 - A1
+    - IN3 - A2
+    - IN4 - B0
+    - IN5 - B1
+    - IN6 - B2
+    - IN7 - Cin
 # A description of what the outputs do
   outputs:
-    - segment a
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
-    - dot
+    - segment a - S0
+    - segment b - S1
+    - segment c - S2
+    - segment d - Cout
+    - segment e - none
+    - segment f - none
+    - segment g - none
+    - dot - none
 
 # The following fields are optional
   tag:          ""      # comma separated list of tags: test encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
   external_hw:  ""      # Describe any external hardware needed
-  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  discord:      "Anish Paul #3907"     
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     0       # Clock frequency in Hz (if required)
   picture:      ""      # relative path to a picture in your repository
