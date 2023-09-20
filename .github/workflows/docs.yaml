@@ -20,6 +20,7 @@ jobs:
       with:
         repository: tinytapeout/tt-support-tools
         path: tt
+        ref: tt03
 
     # for debugging, show all the files
     - name: show files
